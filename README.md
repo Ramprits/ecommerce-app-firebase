@@ -6,3 +6,4 @@
 > 2 npm i or yarn install
 > 3 yarn start
 > 4 check or open your browser on port 3000
+# ecommerce-app-firebase
