@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import StripeButton from "src/components/StripeButton";
 import { REMOVE_CART_ITEM } from "src/store/reducers/cart";
+
 import {
   selectCartItems,
   selectCartTotal,
@@ -74,6 +76,7 @@ const CartPage = () => {
                 <th></th>
                 <th>
                   <label>Total: ${total}</label>
+                  <StripeButton price={total} />
                 </th>
               </tr>
             </tfoot>
