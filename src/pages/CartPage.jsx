@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import StripeButton from "src/components/StripeButton";
-import { REMOVE_CART_ITEM } from "src/store/reducers/cart";
+import StripeButton from "components/StripeButton";
+import { REMOVE_CART_ITEM } from "store/reducers/cart";
 
 import {
   selectCartItems,
   selectCartTotal,
-} from "src/store/selectors/cartSelectors";
+} from "store/selectors/cartSelectors";
 
 const CartPage = () => {
   const total = useSelector(selectCartTotal);

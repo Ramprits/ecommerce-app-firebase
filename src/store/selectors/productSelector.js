@@ -8,8 +8,11 @@ export const selectProducts = createSelector(
 
 export const selectProductPreview = createSelector(
   [selectProducts],
-  (products) => Object.keys(products).map((key) => products[key])
+  (products) =>
+    products ? Object.keys(products).map((key) => products[key]) : []
 );
 
 export const getProductByCategoryName = (params) =>
-  createSelector([selectProducts], (products) => products[params]);
+  createSelector([selectProducts], (products) =>
+    products ? products[params] : null
+  );

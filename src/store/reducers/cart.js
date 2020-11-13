@@ -1,4 +1,4 @@
-import { addItemToCart, removeItemFromCart } from "src/utils/cart.utils";
+import { addItemToCart, removeItemFromCart } from "utils/cart.utils";
 export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
 export const ADD_TO_CART = "ADD_TO_CART";
 const initialState = {

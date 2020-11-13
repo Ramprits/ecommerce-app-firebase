@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { ADD_TO_CART } from "src/store/reducers/cart";
+import { ADD_TO_CART } from "store/reducers/cart";
 
 const CardComponent = ({ id, name, imageUrl, price }) => {
   const dispatch = useDispatch();

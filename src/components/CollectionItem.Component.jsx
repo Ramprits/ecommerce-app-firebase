@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
-import { getProductByCategoryName } from "src/store/selectors/productSelector";
+import { getProductByCategoryName } from "store/selectors/productSelector";
 import CardComponent from "./Card.Component";
 
 const CollectionItem = ({ match }) => {

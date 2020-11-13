@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import ProductDetail from "src/components/ProductDetail";
-import { selectProductPreview } from "src/store/selectors/productSelector";
+import ProductDetail from "components/ProductDetail";
+import { selectProductPreview } from "store/selectors/productSelector";
 
 const ProductOverViewComponent = () => {
   const products = useSelector(selectProductPreview);

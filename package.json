@@ -25,6 +25,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "deploy:dev": "firebase deploy --project react-redux-e398c-dev",
+    "deploy:prod": "firebase deploy --project react-redux-e398c-prod.web.app",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

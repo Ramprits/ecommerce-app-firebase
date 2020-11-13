@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { auth, signInWithGoogle } from "../firebase/firebase.utils";
-import { selectCartItemsCount } from "src/store/selectors/cartSelectors";
+import { selectCartItemsCount } from "store/selectors/cartSelectors";
 
 const HeaderComponent = () => {
   const { currentUser } = useSelector((state) => state.user);
