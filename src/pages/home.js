@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import CardComponent from "../components/Card.Component";
+import CardComponent from "../components/Card";
 
 const HomeComponent = () => {
   const { directories } = useSelector((state) => state.directoryList);

@@ -4,12 +4,8 @@ import { Route } from "react-router-dom";
 import { UPDATE_PRODUCTS } from "store/reducers/product";
 import { collectionSnapShotToMap, firestore } from "firebase/firebase.utils";
 
-import CollectionItem from "components/CollectionItem.Component";
-import ProductOverViewComponent from "components/ProductOverView.Component";
-import withSpinner from "components/With-Spinner.Component";
-
-const CollectionItemWithSpinner = withSpinner(CollectionItem);
-const ProductOverViewWithSpinner = withSpinner(ProductOverViewComponent);
+import CollectionItem from "components/CollectionItem";
+import ProductOverViewComponent from "components/ProductOverView";
 
 const ProductPage = ({ match }) => {
   const [loading, setLoading] = useState(true);
@@ -32,16 +28,12 @@ const ProductPage = ({ match }) => {
       <Route
         exact
         path={`${match.path}`}
-        render={(props) => (
-          <CollectionItemWithSpinner isLoading={loading} {...props} />
-        )}
+        component={ProductOverViewComponent}
       />
       <Route
         exact
         path={`${match.path}/:collectionId`}
-        render={(props) => (
-          <ProductOverViewWithSpinner isLoading={loading} {...props} />
-        )}
+        component={CollectionItem}
       />
     </div>
   );

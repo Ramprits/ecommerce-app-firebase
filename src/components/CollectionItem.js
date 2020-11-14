@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
-import { getProductByCategoryName } from "store/selectors/productSelector";
-import CardComponent from "./Card.Component";
+import CardComponent from "./Card";
+import { productByName } from "store/selectors/productSelector";
 
 const CollectionItem = ({ match }) => {
   const { title, items } = useSelector(
-    getProductByCategoryName(match.params.collectionId)
+    productByName(match.params.collectionId)
   );
   return (
     <Fragment>
@@ -13,14 +13,15 @@ const CollectionItem = ({ match }) => {
         className="title"
         style={{ display: "flex", justifyContent: "center" }}
       >
-        {title}
+        {title && title}
       </div>
       <div className="columns is-multiline">
-        {items.map((item) => (
-          <div className="column is-3" key={item.id}>
-            <CardComponent {...item} />
-          </div>
-        ))}
+        {items &&
+          items.map((item) => (
+            <div className="column is-3" key={item.id}>
+              <CardComponent {...item} />
+            </div>
+          ))}
       </div>
     </Fragment>
   );

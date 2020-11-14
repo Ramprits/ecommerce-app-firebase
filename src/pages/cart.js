@@ -1,7 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import StripeButton from "components/StripeButton";
-import { REMOVE_CART_ITEM } from "store/reducers/cart";
+import {
+  ADD_TO_CART,
+  REMOVE_ITEM,
+  CLEAR_ITEM_FROM_CART,
+} from "store/reducers/cart";
 
 import {
   selectCartItems,
@@ -15,7 +19,7 @@ const CartPage = () => {
 
   const handleDelete = (id) =>
     dispatch({
-      type: REMOVE_CART_ITEM,
+      type: CLEAR_ITEM_FROM_CART,
       payload: id,
     });
 
@@ -45,13 +49,25 @@ const CartPage = () => {
                   <td>{cart.name}</td>
                   <td>
                     <div className="quantity" style={{ display: "flex" }}>
-                      <div className="arrow" style={{ cursor: "pointer" }}>
+                      <div
+                        className="arrow"
+                        onClick={() =>
+                          dispatch({ type: REMOVE_ITEM, payload: cart })
+                        }
+                        style={{ cursor: "pointer" }}
+                      >
                         &#10094;
                       </div>
                       <span className="value" style={{ margin: "0 10px" }}>
                         {cart.quantity}
                       </span>
-                      <div className="arrow" style={{ cursor: "pointer" }}>
+                      <div
+                        className="arrow"
+                        onClick={() =>
+                          dispatch({ type: ADD_TO_CART, payload: cart })
+                        }
+                        style={{ cursor: "pointer" }}
+                      >
                         &#10095;
                       </div>
                     </div>

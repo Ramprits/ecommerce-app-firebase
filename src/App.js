@@ -5,18 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./store/reducers/user";
 
-import ErrorBoundary from "./components/Error-boundary";
-import HeaderComponent from "./components/Header.Component";
-import LoadingComponent from "./components/Loading.Component";
+import ErrorBoundary from "./components/ErrorBoundary";
+import HeaderComponent from "./components/Header";
+import LoadingComponent from "./components/loading";
 
 // component imported here
-const HomePage = lazy(() => import("./pages/HomePage"));
-const ContactPage = lazy(() => import("./pages/ContactPage"));
-const AboutPage = lazy(() => import("./pages/AboutPage"));
-const SignInPage = lazy(() => import("./pages/LoginPage"));
-const RegisterPage = lazy(() => import("./pages/RegisterPage"));
-const ProductPage = lazy(() => import("./pages/ProductPage"));
-const CartPage = lazy(() => import("./pages/CartPage"));
+const HomePage = lazy(() => import("./pages/home"));
+const ContactPage = lazy(() => import("./pages/contact"));
+const AboutPage = lazy(() => import("./pages/about"));
+const SignInPage = lazy(() => import("./pages/login"));
+const RegisterPage = lazy(() => import("./pages/register"));
+const ProductPage = lazy(() => import("./pages/product"));
+const CartPage = lazy(() => import("./pages/cart"));
 
 const App = () => {
   const { currentUser } = useSelector((state) => state.user);

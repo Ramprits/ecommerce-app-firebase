@@ -12,7 +12,5 @@ export const selectProductPreview = createSelector(
     products ? Object.keys(products).map((key) => products[key]) : []
 );
 
-export const getProductByCategoryName = (params) =>
-  createSelector([selectProducts], (products) =>
-    products ? products[params] : null
-  );
+export const productByName = (params) =>
+  createSelector([selectProducts], (products) => products[params]);

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import CardComponent from "./Card.Component";
+import CardComponent from "./Card";
 
 const ProductDetail = ({ title, items, routeName, match }) => {
   const params = useHistory();
