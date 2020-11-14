@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Route } from "react-router-dom";
-import { UPDATE_PRODUCTS } from "store/reducers/product";
 import { collectionSnapShotToMap, firestore } from "firebase/firebase.utils";
 
 import CollectionItem from "components/CollectionItem";
 import ProductOverViewComponent from "components/ProductOverView";
+import { FETCH_PRODUCTS_SUCCESS } from "store/reducers/product";
 
 const ProductPage = ({ match }) => {
-  const [loading, setLoading] = useState(true);
-
   const dispatch = useDispatch();
   useEffect(() => {
     const productRef = firestore.collection("products");
     const UnSubscribeCollectionMap = productRef.onSnapshot(async (snapShot) => {
       const collectionMap = collectionSnapShotToMap(snapShot);
-      dispatch({ type: UPDATE_PRODUCTS, payload: collectionMap });
+      dispatch({ type: FETCH_PRODUCTS_SUCCESS, payload: collectionMap });
     });
-    setLoading(false);
     return () => {
       UnSubscribeCollectionMap();
     };
