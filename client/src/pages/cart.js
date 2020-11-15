@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import StripeButton from "components/StripeButton";
+
 import {
   ADD_TO_CART,
   REMOVE_ITEM,
@@ -92,7 +93,10 @@ const CartPage = () => {
                 <th></th>
                 <th>
                   <label>Total: ${total}</label>
-                  <StripeButton price={total} />
+                  <StripeButton
+                    price={total}
+                    description={"This is my demmy payment"}
+                  />
                 </th>
               </tr>
             </tfoot>

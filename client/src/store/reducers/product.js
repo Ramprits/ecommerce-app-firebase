@@ -1,3 +1,6 @@
+import { firestore } from "firebase/firebase.utils";
+import { collectionSnapShotToMap } from "firebase/firebase.utils";
+
 export const INITIAL_PRODUCT_LOAD = "INITIAL_PRODUCT_LOAD";
 export const PRODUCT_LOADED = "PRODUCT_LOADED";
 export const UPDATE_PRODUCTS = "UPDATE_PRODUCTS";
@@ -24,6 +27,20 @@ export const fetchProductSuccess = (payload) => ({
   type: FETCH_PRODUCTS_SUCCESS,
   payload,
 });
+
+export const fetchProductAsync = () => (dispatch) => {
+  const productRef = firestore.collection("products");
+  dispatch(fetchProductStart());
+  productRef
+    .get()
+    .then((snapShot) => {
+      const collectionMap = collectionSnapShotToMap(snapShot);
+      dispatch(fetchProductSuccess(collectionMap));
+    })
+    .catch((error) => {
+      dispatch(fetchProductFailure(error.message));
+    });
+};
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
